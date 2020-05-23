@@ -39,11 +39,11 @@ def get_zaiko_info(url):
     else:
         load_date = soup.find('div', class_='stateDate').string
         if '○' in zaiko:
-            message = f'在庫があります{load_date}'
+            message = '在庫があります'+load_date
             state = 1
         else:
             return_date = soup.find('div', class_='state').find('div').string
-            message = f'現在在庫がありません{load_date} {return_date}'
+            message = '現在在庫がありません'+{load_date}+' '+{return_date}'
             state = 0
     return state, message
 
@@ -52,10 +52,10 @@ def main():
     message_list = []
     for url_dict in url_list:
         state, message = get_zaiko_info(url_dict['url'])
-        message_list.append(f'{url_dict["title"]}\n{message}')
+        message_list.append(url_dict["title"]+'\n'+message)
         if state == 1:
             headers = {"Authorization": "Bearer " + token_000}
-            payload = {"message": f'{url_dict["title"]}\n{message}'}
+            payload = {"message": url_dict["title"]+'\n'+message}
             requests.post("https://notify-api.line.me/api/notify", headers=headers, data=payload)
 
     driver.quit()  # ブラウザを閉じる
