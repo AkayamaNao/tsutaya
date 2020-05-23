@@ -43,7 +43,7 @@ def get_zaiko_info(url):
             state = 1
         else:
             return_date = soup.find('div', class_='state').find('div').string
-            message = '現在在庫がありません'+{load_date}+' '+{return_date}'
+            message = '現在在庫がありません'+load_date+' '+return_date
             state = 0
     return state, message
 
