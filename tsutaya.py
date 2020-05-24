@@ -1,16 +1,9 @@
 # -*- coding: utf-8 -*-
-
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 import requests
-
-# グローバル変数
-item_id = '005570850'
-item_type = 'rental_cd'
-prefecture_id = '13'
-csv_save_dir = './csv/'
 
 options = Options()
 options.add_argument('--headless')
@@ -39,6 +32,8 @@ def get_zaiko_info(url):
             break
         except:
             continue
+    if i == 4:
+        return 0, '情報を取得できませんでした'
     if '－' in zaiko:
         message = '取扱していません'
         state = -1
@@ -67,16 +62,20 @@ def main():
     driver.quit()  # ブラウザを閉じる
     message = '\n' + '\n\n'.join(message_list)
 
-    with open('last_message.txt', 'r', encoding='utf-8') as f:
-        last_message = f.read()
+    headers = {"Authorization": "Bearer " + token_private}
+    payload = {"message": message}
+    requests.post("https://notify-api.line.me/api/notify", headers=headers, data=payload)
 
-    if message != last_message:
-        headers = {"Authorization": "Bearer " + token_private}
-        payload = {"message": message}
-        requests.post("https://notify-api.line.me/api/notify", headers=headers, data=payload)
-
-        with open('last_message.txt', 'w', encoding='utf-8') as f:
-            f.write(message)
+    # with open('last_message.txt', 'r', encoding='utf-8') as f:
+    #     last_message = f.read()
+    #
+    # if message != last_message:
+    #     headers = {"Authorization": "Bearer " + token_private}
+    #     payload = {"message": message}
+    #     requests.post("https://notify-api.line.me/api/notify", headers=headers, data=payload)
+    #
+    #     with open('last_message.txt', 'w', encoding='utf-8') as f:
+    #         f.write(message)
 
 
 if __name__ == '__main__':
