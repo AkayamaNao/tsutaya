@@ -28,22 +28,27 @@ url_list = [
 
 
 def get_zaiko_info(url):
-    driver.get(url)
-    driver.implicitly_wait(10)
-    html = driver.page_source
-    soup = BeautifulSoup(html, 'html.parser')
-    zaiko = soup.find('div', class_='state').find('span').string
+    for i in range(5):
+        driver.get(url)
+        driver.implicitly_wait(30)
+        html = driver.page_source
+        soup = BeautifulSoup(html, 'html.parser')
+        try:
+            zaiko = soup.find('div', class_='state').find('span').string
+            break
+        except:
+            continue
     if '－' in zaiko:
         message = '取扱していません'
         state = -1
     else:
         load_date = soup.find('div', class_='stateDate').string
         if '○' in zaiko:
-            message = '在庫があります'+load_date
+            message = '在庫があります\n'+load_date
             state = 1
         else:
             return_date = soup.find('div', class_='state').find('div').string
-            message = '現在在庫がありません'+load_date+' '+return_date
+            message = '現在在庫がありません\n'+load_date+'\n'+return_date
             state = 0
     return state, message
 
@@ -55,13 +60,13 @@ def main():
         message_list.append(url_dict["title"]+'\n'+message)
         if state == 1:
             headers = {"Authorization": "Bearer " + token_000}
-            payload = {"message": url_dict["title"]+'\n'+message}
+            payload = {"message": '\n'+url_dict["title"]+'\n'+message}
             requests.post("https://notify-api.line.me/api/notify", headers=headers, data=payload)
 
     driver.quit()  # ブラウザを閉じる
 
     headers = {"Authorization": "Bearer " + token_private}
-    payload = {"message": '\n\n'.join(message_list)}
+    payload = {"message": '\n'+'\n\n'.join(message_list)}
     requests.post("https://notify-api.line.me/api/notify", headers=headers, data=payload)
 
 
