@@ -67,7 +67,7 @@ def main():
     driver.quit()  # ブラウザを閉じる
     message = '\n' + '\n\n'.join(message_list)
 
-    with open('last_message.txt', 'r') as f:
+    with open('last_message.txt', 'r', encoding='utf-8') as f:
         last_message = f.read()
 
     if message != last_message:
@@ -75,7 +75,7 @@ def main():
         payload = {"message": message}
         requests.post("https://notify-api.line.me/api/notify", headers=headers, data=payload)
 
-        with open('last_message.txt', 'w') as f:
+        with open('last_message.txt', 'w', encoding='utf-8') as f:
             f.write(message)
 
 
