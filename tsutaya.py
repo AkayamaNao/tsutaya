@@ -16,8 +16,11 @@ token_private = 'LNRxo0CLxzUteJNndzwhrQwS5LLEFtIubtM2QRi46A2'
 token_000 = 'CDE9b5U3qVBNqnRhpH9q8PhbBiLCO7epp1eFdExk5dV'
 
 url_list = [
+    {'title': 'かぐや様は告らせたい8', 'url': 'https://store-tsutaya.tsite.jp/item/rental_comic/103361867.html?storeId=7630'},
+    {'title': 'かぐや様は告らせたい9', 'url': 'https://store-tsutaya.tsite.jp/item/rental_comic/103390533.html?storeId=7630'},
+    {'title': 'かぐや様は告らせたい10', 'url': 'https://store-tsutaya.tsite.jp/item/rental_comic/103407857.html?storeId=7630'},
+    {'title': 'かぐや様は告らせたい11', 'url': 'https://store-tsutaya.tsite.jp/item/rental_comic/103437478.html?storeId=7630'},
     {'title': 'かぐや様は告らせたい18', 'url': 'https://store-tsutaya.tsite.jp/item/rental_comic/103616950.html?storeId=7630'},
-    {'title': 'かぐや様は告らせたい17', 'url': 'https://store-tsutaya.tsite.jp/item/rental_comic/103587429.html?storeId=7630'}
 ]
 
 
