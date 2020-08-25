@@ -16,11 +16,14 @@ token_private = 'LNRxo0CLxzUteJNndzwhrQwS5LLEFtIubtM2QRi46A2'
 token_000 = 'CDE9b5U3qVBNqnRhpH9q8PhbBiLCO7epp1eFdExk5dV'
 
 url_list = [
-    {'title': 'かぐや様は告らせたい8', 'url': 'https://store-tsutaya.tsite.jp/item/rental_comic/103361867.html?storeId=7630'},
-    {'title': 'かぐや様は告らせたい9', 'url': 'https://store-tsutaya.tsite.jp/item/rental_comic/103390533.html?storeId=7630'},
-    {'title': 'かぐや様は告らせたい10', 'url': 'https://store-tsutaya.tsite.jp/item/rental_comic/103407857.html?storeId=7630'},
-    {'title': 'かぐや様は告らせたい11', 'url': 'https://store-tsutaya.tsite.jp/item/rental_comic/103437478.html?storeId=7630'},
-    {'title': 'かぐや様は告らせたい18', 'url': 'https://store-tsutaya.tsite.jp/item/rental_comic/103616950.html?storeId=7630'},
+    {'title': 'ようこそ実力至上主義の教室へ２', 'url': 'https://store-tsutaya.tsite.jp/item/rental_comic/103249727.html?storeId=7630'},
+    {'title': 'ようこそ実力至上主義の教室へ３', 'url': 'https://store-tsutaya.tsite.jp/item/rental_comic/103276750.html?storeId=7630'},
+    {'title': 'ようこそ実力至上主義の教室へ４', 'url': 'https://store-tsutaya.tsite.jp/item/rental_comic/103306934.html?storeId=7630'},
+    {'title': 'ようこそ実力至上主義の教室へ５', 'url': 'https://store-tsutaya.tsite.jp/item/rental_comic/103349773.html?storeId=7630'},
+    {'title': 'ようこそ実力至上主義の教室へ６', 'url': 'https://store-tsutaya.tsite.jp/item/rental_comic/103381645.html?storeId=7630'},
+    {'title': 'ようこそ実力至上主義の教室へ７', 'url': 'https://store-tsutaya.tsite.jp/item/rental_comic/103463433.html?storeId=7630'},
+    {'title': 'ようこそ実力至上主義の教室へ８', 'url': 'https://store-tsutaya.tsite.jp/item/rental_comic/103528200.html?storeId=7630'},
+    {'title': 'ようこそ実力至上主義の教室へ９', 'url': 'https://store-tsutaya.tsite.jp/item/rental_comic/103593729.html?storeId=7630'},
 ]
 
 
