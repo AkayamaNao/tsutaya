@@ -94,7 +94,7 @@ def main():
         except:
             continue
 
-    if len(vacant) > 0:
+    if len(vacant) >= 0:
         message=f'{len(vacant)} 日候補があります。\n{url}'
         headers = {"Authorization": "Bearer " + token_private}
         payload = {"message": message}
