@@ -94,9 +94,9 @@ def main():
         except:
             continue
 
-    if len(vacant) >= 0:
+    if len(vacant) = 0:
         message=f'{len(vacant)} 日候補があります。\n{url}'
-        headers = {"Authorization": "Bearer " + token_private}
+        headers = {"Authorization": "Bearer " + token_000}
         payload = {"message": message}
         requests.post("https://notify-api.line.me/api/notify", headers=headers, data=payload)
 
