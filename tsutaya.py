@@ -4,6 +4,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 import requests
+import datetime
 
 options = Options()
 options.add_argument('--headless')
@@ -82,7 +83,8 @@ def get_zaiko_info(url):
 
 
 def main():
-    url = 'https://hotel.travel.rakuten.co.jp/hotelinfo/plan/?f_no=84814&f_campaign=&f_flg=PLAN&f_kin=&f_kin2=&f_heya_su=1&f_hak=&f_tel=&f_tscm_flg=&f_p_no=&f_custom_code=&send=&f_clip_flg=&f_static=&f_service=&f_teikei=&f_camp_id=4246007&f_syu=1&f_hizuke=20201017&f_otona_su=1&f_thick=1&TB_iframe=true&height=768&width=1024'
+    today=datetime.datetime.now().strftime('%Y%m%d')
+    url = f'https://hotel.travel.rakuten.co.jp/hotelinfo/plan/?f_no=84814&f_campaign=&f_flg=PLAN&f_kin=&f_kin2=&f_heya_su=1&f_hak=&f_tel=&f_tscm_flg=&f_p_no=&f_custom_code=&send=&f_clip_flg=&f_static=&f_service=&f_teikei=&f_camp_id=4246007&f_syu=1&f_hizuke={today}&f_otona_su=1&f_thick=1&TB_iframe=true&height=768&width=1024'
     for i in range(5):
         driver.get(url)
         driver.implicitly_wait(30)
@@ -94,7 +96,7 @@ def main():
         except:
             continue
 
-    if len(vacant) = 0:
+    if len(vacant) != 0:
         message=f'{len(vacant)} 日候補があります。\n{url}'
         headers = {"Authorization": "Bearer " + token_000}
         payload = {"message": message}
